@@ -1,0 +1,47 @@
+{% extends 'base.html' %} {% block title %} home {% endblock title %} {% block
+    main %}
+    <nav class="breadcrumb">
+        <a class="breadcrumb-item" href="/">Home</a>
+        <a class="breadcrumb-item" href="/view/{{blog.id}}">View</a>
+        <a class="breadcrumb-item" href="/updateform/{{blog.id}}">update</a>
+
+        <span class="breadcrumb-item active"></span>
+      </nav>
+      
+    <div class="container mt-4">
+      <h1 class="mt-4">Blogs</h1>
+      <form action="/update/{{blog.id}}" method="POST">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            name="title"
+            id="title"
+            aria-describedby="helpId"
+            value="{{ blog.title }}"
+          />
+        </div>
+        <div class="form-group">
+          <label for="desc"> Descrption</label>
+          <textarea class="form-control" name="desc" id="desc" rows="3" >{{ blog.desciption }}</textarea>
+        </div>
+        <div class="form-group">
+          <label for=""></label>
+          <select class="form-control" name="author" id="author">
+            {% for author in authors %}
+    
+            <option>{{ author.name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+    
+        <div>
+          <button type="submit" class="btn btn-dark">Update</button>
+        </div>
+      </form>
+    </div>
+  
+    {% endblock main %}
+    
+    

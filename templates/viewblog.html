@@ -1,0 +1,28 @@
+{% extends 'base.html' %} {% block title %} home {% endblock title %} {% block
+main %}
+<nav class="breadcrumb">
+  <a class="breadcrumb-item" href="/">Home</a>
+  <a class="breadcrumb-item" href="#">View</a>
+  <span class="breadcrumb-item active"></span>
+</nav>
+
+<div class="container mt-4">
+  <div class="card-rows">
+    <div class="card">
+      <img class="card-img-top" src="holder.js/100x180/" alt="" />
+      <div class="card-body">
+        <h4 class="card-title">{{ blog.title }}</h4>
+        <p class="card-text">{{ blog.desciption }}</p>
+        <hr />
+        <b>Author :</b> <i>{{ blog.author }}</i>
+        <br />
+        <b>Publish Date :</b> <i>{{ blog.pub_date }}</i>
+      </div>
+    </div>
+  </div>
+  <a  class="btn btn-primary" href="/delete/{{blog.id}}" role="button"> Delete</a>
+  <a  class="btn btn-primary" href="/updateform/{{blog.id}}" role="button"> Update</a>
+
+</div>
+
+{% endblock main %}

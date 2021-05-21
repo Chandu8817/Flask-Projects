@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}
+    author
+{% endblock title %}
+
+{% block main %}    <a class="breadcrumb-item" href="/">Home</a>
+<a class="breadcrumb-item" href="/author">Author</a>
+
+<div class="container mt-4">
+    <h1 class="mt-4">Blogs</h1>
+    <form action="/add" method="POST">
+        <div class="form-group">
+          <label for="author">Author Name</label>
+          <input type="text" class="form-control" name="author" id="author" aria-describedby="helpId" placeholder="">
+        
+        </div>
+          <div>
+          <button type="submit" class="btn btn-dark">Submit</button>
+
+          </div>
+    </form>
+  
+</div>
+    
+{% endblock main %}

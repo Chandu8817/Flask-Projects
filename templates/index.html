@@ -1,0 +1,89 @@
+{% extends 'base.html' %} {% block title %} home {% endblock title %} {% block
+main %}
+
+<div class="container mt-4">
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-outline-dark btn-lg" data-toggle="modal" data-target="#modelId">
+    Add Blogs
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Blogs </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+            </div>
+            <div class="modal-body">
+                
+                    
+                    <form action="/" method="POST">
+                      <div class="form-group">
+                        <label for="title">Title</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          name="title"
+                          id="title"
+                          aria-describedby="helpId"
+                          placeholder=""
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="desc"> Descrption</label>
+                        <textarea class="form-control" name="desc" id="desc" rows="3"></textarea>
+                      </div>
+                      <div class="form-group">
+                        <label for=""></label>
+                        <select class="form-control" name="author" id="author">
+                          {% for author in authors %}
+                  
+                          <option>{{ author.name }}</option>
+                          {% endfor %}
+                        </select>
+                      </div>
+                  
+                      
+                  
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <div>
+                    <button type="submit" class="btn btn-dark">Submit</button>
+                  </div>
+            </div>
+        </form>
+
+        </div>
+    </div>
+</div>
+<div class="container mt-4">
+  <div class="card-rows">
+    {% if blogs %} {% for blog in blogs %}
+    
+<a href="/view/{{blog.id}}" class="text-decoration-none text-dark">
+    <div class="card">
+      <img class="card-img-top" src="holder.js/100x180/" alt="" />
+      <div class="card-body">
+        <h4 class="card-title">{{ blog.title }}</h4>
+        <p class="card-text bloglist-text" >{{ blog.desciption }}</p>
+    
+      </div>
+    </div>
+</a>
+    <br>
+    {% endfor %} {% else %}
+    <div class="alert alert-primary" role="alert">
+      <strong>No Blogs </strong>
+    </div>
+
+    {% endif %}
+  </div>
+</div>
+{% endblock main %}
+

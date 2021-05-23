@@ -1,0 +1,39 @@
+{% extends "base.html" %} {% block main %}
+<div class="container">
+  <h3 class="title">Login</h3>
+  {% with messages = get_flashed_messages() %} {% if messages %}
+  <div class="text-danger">{{ messages[0] }}</div>
+  {% endif %} {% endwith %}
+  <div class="d-flex justify-content-center">
+    <form method="POST" action="/login">
+        <div class="form-group row">
+          <div class="col-md-8">
+            <label for="username">Username</label>
+            <input
+              type="text"
+              name="username"
+              class="form-control input-lg"
+              id="username"
+              placeholder="Enter Username"
+            />
+          </div>
+  
+     
+          <div class="col-md-8">
+            <label for="exampleInputPassword1">Password</label>
+            <input
+              type="password"
+              name="password"
+              class="form-control input-lg"
+              id="exampleInputPassword1"
+              placeholder="Password"
+            />
+          </div>
+      </div>
+  
+        <button type="submit" class="btn btn-dark">Login</button>
+  
+      </form>
+  </div>
+</div>
+{% endblock %}

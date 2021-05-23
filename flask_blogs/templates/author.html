@@ -7,6 +7,8 @@
 <a class="breadcrumb-item" href="/author">Author</a>
 
 <div class="container mt-4">
+
+
     <h1 class="mt-4">Blogs</h1>
     <form action="/add" method="POST">
         <div class="form-group">
@@ -21,5 +23,11 @@
     </form>
   
 </div>
-    
+    <div>
+ 
+    {% for aut in authors %}
+    <p>{{ aut.name }}</p>
+        
+      {% endfor %}
+    </div>
 {% endblock main %}
